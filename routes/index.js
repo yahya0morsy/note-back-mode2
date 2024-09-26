@@ -116,7 +116,7 @@ router.post('/notes/delete',Serialize,async function(req,res){
   
 
 })
-router.get('/notes/user',Serialize,async function(req,res) {
+router.post('/notes/user',Serialize,async function(req,res) {
 
     if(!req.body.human){res.status(404).send("please log in first!")}
     if(req.body.human){const finduser =await User.findOne({Username:req.body.owner})
