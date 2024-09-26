@@ -84,7 +84,7 @@ router.patch('/notes/edit',Serialize,async function(req,res) {
 
   
 })
-router.get('/notes/show',Serialize,async function(req,res){
+router.post('/notes/show',Serialize,async function(req,res){
     if(!req.body.human){res.status(404).send("please log in first!");};
     if(req.body.human){try{
       const note = await Notes.find({owner:req.body.human})
