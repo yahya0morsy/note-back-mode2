@@ -5,7 +5,6 @@ var Notes = require('../src/schemas/notes.js');
 const mongoose = require('mongoose');
 
 
-require('../public/hasher.js')
 var Login = require('../public/handypassport.js')
 var Serialize = require('../public/serialize.js')
 router.use(Login)
@@ -19,7 +18,6 @@ router.get('/', function(req, res, next) {
 });
 router.post('/log',async function(req, res ) {
   const {body} = req
-  req.body.Password = passhash(req.body.Password)
   const z = await User.findOne({Username:req.body.Username})
   if(z){
     return(console.log("username exist"),

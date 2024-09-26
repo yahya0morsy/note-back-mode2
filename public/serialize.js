@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const User = require('../src/schemas/user');
-const { comparepass } = require('../public/hasher.js');
-require('../public/hasher.js')
+
+
 Serialize =  async function Serialize(req,res,next){
     console.log("inside s");
     const finduser =await User.findOne({_id:req.body.id});
