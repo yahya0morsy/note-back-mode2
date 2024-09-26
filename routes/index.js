@@ -13,7 +13,7 @@ router.use(Serialize)
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.send('hi')
   console.log("database connect")
 });
 router.post('/log',async function(req, res ) {
