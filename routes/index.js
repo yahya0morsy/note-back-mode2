@@ -129,13 +129,13 @@ router.patch('/notes/user/changepass' ,Serialize,async function(req,res) {
   if(req.body.human){
     const {body}=req
    const finduser =await User.findOne({Username:req.body.human})
-    if(comparepass(req.body.currentPassword,finduser.Password)){
+    if(req.body.currentPassword==finduser.Password){
       const oldpass ={Password:finduser.Password}
-      const newpass ={ $set: {Password:passhash(req.body.newPassword)} }
+      const newpass ={ $set: {Password:req.body.newPassword} }
       await User.updateOne(oldpass,newpass)
       res.send('password has changed')
     }
-    if(!comparepass(req.body.currentPassword,finduser.Password)){
+    if(req.body.currentPassword!==finduser.Password){
       res.send('current password is not right')
     }
   
