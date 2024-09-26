@@ -128,7 +128,7 @@ router.patch('/notes/user/changepass' ,Serialize,async function(req,res) {
     if(!req.body.human){res.status(404).send("please log in first!")}
   if(req.body.human){
     const {body}=req
-   const finduser =await User.findOne({Username:req.body.owner})
+   const finduser =await User.findOne({Username:req.body.human})
     if(comparepass(req.body.currentPassword,finduser.Password)){
       const oldpass ={Password:finduser.Password}
       const newpass ={ $set: {Password:passhash(req.body.newPassword)} }
