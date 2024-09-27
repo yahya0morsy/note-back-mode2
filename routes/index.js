@@ -3,7 +3,7 @@ var router = express.Router();
 var User = require('../src/schemas/user.js');
 var Notes = require('../src/schemas/notes.js');
 const mongoose = require('mongoose');
-
+const bcrypt = require("bcryptjs")
 
 var Login = require('../public/handypassport.js')
 var Serialize = require('../public/serialize.js')
