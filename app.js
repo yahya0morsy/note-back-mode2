@@ -22,7 +22,7 @@ catch(error){console.log(error)}
 //mongoose.connect('mongodb://localhost:27017').then(console.log("database connect"))
 
 let corsOptions = {
-  origin: [ 'http://localhost:5173', 'http://localhost:5173/note-front','https://yahya0morsy.github.io/notes-app-finally/','https://notes-app-final-seven.vercel.app/', 'https://yahya0morsy.github.io','http://localhost:8000','https://yahya0morsy.github.io/note-front/#/try' ],
+  origin: [ 'http://localhost:5173', 'http://localhost:5173/note-front','https://yahya0morsy.github.io/notes-app-finally/','https://notes-app-final-seven.vercel.app', 'https://yahya0morsy.github.io','http://localhost:8000','https://yahya0morsy.github.io/note-front/#/try' ],
   credentials: true 
 };
 app.use(cors(corsOptions));
