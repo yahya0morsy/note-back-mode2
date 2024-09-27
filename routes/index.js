@@ -4,9 +4,10 @@ var User = require('../src/schemas/user.js');
 var Notes = require('../src/schemas/notes.js');
 const mongoose = require('mongoose');
 const bcrypt = require("bcryptjs")
-
+require('../public/hasher.js')
 var Login = require('../public/handypassport.js')
-var Serialize = require('../public/serialize.js')
+var Serialize = require('../public/serialize.js');
+const { comparepass, passhash } = require('../public/hasher.js');
 router.use(Login)
 router.use(Serialize)
 
@@ -23,6 +24,7 @@ router.post('/log',async function(req, res ) {
     return(console.log("username exist"),
     res.send('username exist'))};
   try{
+  req.body.Password = passhash(req.body.Password)
   const x = new User(req.body)
   const saveduser =await x.save() 
   return(res.status(200),res.send('user is added'))}catch(error){return(res.send(error))}
