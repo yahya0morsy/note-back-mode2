@@ -47,8 +47,8 @@ router.post('/log/auth',Login,async function(req, res){
   if(!req.body.human){res.send('wrong data')}
   if(req.body.human){
     //res.cookie
-    res.send({Message:"logged in",username:req.body.human,id:req.body.id}),
-    console.log(req.body.id)
+    res.send({Message:"logged in",username:req.body.human,key:req.body.key}),
+    console.log(req.body.key)
     }
 });
 router.post('/notes/save',Serialize,async function(req,res){
