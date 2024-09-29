@@ -7,7 +7,7 @@ const { comparepass } = require('../public/hasher.js');
 const { Genkey } = require('../public/key.js');
 require('../public/hasher.js')
 require('../public/key.js')
-
+const date = new Date();
 Login =async function Login(req,res,next){
     const {body} =req
     console.log("workes");

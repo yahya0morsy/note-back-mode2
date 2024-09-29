@@ -10,7 +10,10 @@ const Userschema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    
+    createdAt: {
+        type: Date,
+        default: Date.now,
+        index: { expires: '2d' }}
 })
 const Keys = mongoose.model("Keys" ,Userschema)
 module.exports = Keys
